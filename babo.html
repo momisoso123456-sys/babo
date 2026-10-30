@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>바보</title>
+<style>
+:root{--bg:#fff8e1;--fg:#222;--accent:#ff4d6d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1b2f;--fg:#f5f5f5;--accent:#ffd166}}
+:root[data-theme="dark"]{--bg:#1b1b2f;--fg:#f5f5f5;--accent:#ffd166}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Noto Sans KR",system-ui,sans-serif;overflow-x:hidden;word-break:keep-all}
+h1{text-align:center;font-size:clamp(2.5rem,12vw,6rem);margin:.6em 0 .2em;color:var(--accent)}
+p.sub{text-align:center;margin:0 0 1em;opacity:.7}
+#wall{display:flex;flex-wrap:wrap;justify-content:center;gap:.2em .5em;padding:1em;line-height:1.1}
+#wall span{display:inline-block;font-weight:900;animation:wob 1.6s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.12)}}
+@media (prefers-reduced-motion:reduce){#wall span{animation:none}}
+</style>
+</head>
+<body>
+<h1>바보</h1>
+<p class="sub">이 페이지엔 바보밖에 없어요 🤪</p>
+<div id="wall"></div>
+<script>
+var colors=["#ff4d6d","#ff9f1c","#2ec4b6","#4361ee","#9b5de5","#f15bb5"];
+var wall=document.getElementById("wall");
+for(var i=0;i<150;i++){
+  var s=document.createElement("span");
+  s.textContent="바보";
+  s.style.fontSize=(1.2+Math.random()*3)+"rem";
+  s.style.color=colors[i%colors.length];
+  s.style.animationDelay=(-Math.random()*1.6)+"s";
+  wall.appendChild(s);
+}
+</script>
+</body>
+</html>
